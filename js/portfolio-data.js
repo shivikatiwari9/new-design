@@ -1,14 +1,14 @@
 /**
  * Portfolio Data Configuration
- * 
+ *
  * This file contains all the photo data for the portfolio.
  * You can easily add, remove, or modify photos by editing this file.
- * 
+ *
  * PHOTO SOURCES:
  * - Local images: Use relative paths like "images/category/photo.jpg"
  * - GitHub hosted: Use raw URLs like "https://raw.githubusercontent.com/username/repo/main/path/photo.jpg"
  * - Google Photos: Use direct sharing links (make sure they're publicly accessible)
- * 
+ *
  * PHOTO STRUCTURE:
  * Each photo object should have:
  * - id: Unique identifier
@@ -19,53 +19,127 @@
  */
 
 const portfolioData = {
-    
+
     // Editorial Category
     editorial: [
+        // Vogue HK Shoot (4 images)
         {
             id: 'ed-1',
-            src: 'https://images.unsplash.com/photo-1588421357574-87938a86fa28?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1588421357574-87938a86fa28?w=600&q=80',
-            alt: 'Editorial makeup look - dramatic eyes',
-            group: 'editorial-shoot-1'
+            src: 'images/editorial/Vogue HK1.png',
+            thumb: 'images/editorial/Vogue HK1.png',
+            alt: 'Vogue Hong Kong editorial shoot',
+            group: 'vogue-hk'
         },
         {
             id: 'ed-2',
-            src: 'https://images.unsplash.com/photo-1503236823255-94609f598e71?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1503236823255-94609f598e71?w=600&q=80',
-            alt: 'Editorial makeup - natural beauty',
-            group: 'editorial-shoot-1'
+            src: 'images/editorial/Vogue HK2.png',
+            thumb: 'images/editorial/Vogue HK2.png',
+            alt: 'Vogue Hong Kong editorial shoot',
+            group: 'vogue-hk'
         },
         {
             id: 'ed-3',
-            src: 'https://images.unsplash.com/photo-1596704017254-9b121068fb31?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1596704017254-9b121068fb31?w=600&q=80',
-            alt: 'Editorial makeup - bold lips',
-            group: 'editorial-shoot-2'
+            src: 'images/editorial/Vogue HK3.png',
+            thumb: 'images/editorial/Vogue HK3.png',
+            alt: 'Vogue Hong Kong editorial shoot',
+            group: 'vogue-hk'
         },
         {
             id: 'ed-4',
-            src: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=600&q=80',
-            alt: 'Editorial makeup - soft glam',
-            group: 'editorial-shoot-2'
+            src: 'images/editorial/Vogue HK4.png',
+            thumb: 'images/editorial/Vogue HK4.png',
+            alt: 'Vogue Hong Kong editorial shoot',
+            group: 'vogue-hk'
         },
+        // 26th Feb Magazine Shoot (8 images)
         {
             id: 'ed-5',
-            src: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80',
-            alt: 'Editorial makeup - artistic look',
-            group: 'editorial-shoot-3'
+            src: 'images/editorial/26th Feb magazine6190.jpg',
+            thumb: 'images/editorial/26th Feb magazine6190.jpg',
+            alt: 'Magazine editorial shoot',
+            group: 'feb-magazine'
         },
         {
             id: 'ed-6',
-            src: 'https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=600&q=80',
-            alt: 'Editorial makeup - high fashion',
-            group: 'editorial-shoot-3'
+            src: 'images/editorial/26th Feb magazine6224.jpg',
+            thumb: 'images/editorial/26th Feb magazine6224.jpg',
+            alt: 'Magazine editorial shoot',
+            group: 'feb-magazine'
+        },
+        {
+            id: 'ed-7',
+            src: 'images/editorial/26th Feb magazine6249.jpg',
+            thumb: 'images/editorial/26th Feb magazine6249.jpg',
+            alt: 'Magazine editorial shoot',
+            group: 'feb-magazine'
+        },
+        {
+            id: 'ed-8',
+            src: 'images/editorial/26th Feb magazine6472.jpg',
+            thumb: 'images/editorial/26th Feb magazine6472.jpg',
+            alt: 'Magazine editorial shoot',
+            group: 'feb-magazine'
+        },
+        {
+            id: 'ed-9',
+            src: 'images/editorial/26th Feb magazine6530.jpg',
+            thumb: 'images/editorial/26th Feb magazine6530.jpg',
+            alt: 'Magazine editorial shoot',
+            group: 'feb-magazine'
+        },
+        {
+            id: 'ed-10',
+            src: 'images/editorial/26th Feb magazine6540.jpg',
+            thumb: 'images/editorial/26th Feb magazine6540.jpg',
+            alt: 'Magazine editorial shoot',
+            group: 'feb-magazine'
+        },
+        {
+            id: 'ed-11',
+            src: 'images/editorial/26th Feb magazine6694.jpg',
+            thumb: 'images/editorial/26th Feb magazine6694.jpg',
+            alt: 'Magazine editorial shoot',
+            group: 'feb-magazine'
+        },
+        {
+            id: 'ed-12',
+            src: 'images/editorial/26th Feb magazine6707.jpg',
+            thumb: 'images/editorial/26th Feb magazine6707.jpg',
+            alt: 'Magazine editorial shoot',
+            group: 'feb-magazine'
+        },
+        // 12 Feb Grace Shoot (3 images)
+        {
+            id: 'ed-13',
+            src: 'images/editorial/12 feb Grace3816.jpg',
+            thumb: 'images/editorial/12 feb Grace3816.jpg',
+            alt: 'Grace editorial shoot',
+            group: 'grace-shoot'
+        },
+        {
+            id: 'ed-14',
+            src: 'images/editorial/12 feb Grace3822.jpg',
+            thumb: 'images/editorial/12 feb Grace3822.jpg',
+            alt: 'Grace editorial shoot',
+            group: 'grace-shoot'
+        },
+        {
+            id: 'ed-15',
+            src: 'images/editorial/12 feb.jpg',
+            thumb: 'images/editorial/12 feb.jpg',
+            alt: 'Grace editorial shoot',
+            group: 'grace-shoot'
+        },
+        // Iulia Test (1 image)
+        {
+            id: 'ed-16',
+            src: 'images/editorial/Iuliatest.jpg',
+            thumb: 'images/editorial/Iuliatest.jpg',
+            alt: 'Iulia editorial test shoot',
+            group: 'iulia-test'
         }
     ],
-    
+
     // Fashion Category
     fashion: [
         {
@@ -111,7 +185,7 @@ const portfolioData = {
             group: 'fashion-shoot-3'
         }
     ],
-    
+
     // Beauty Category
     beauty: [
         {
@@ -157,7 +231,7 @@ const portfolioData = {
             group: 'beauty-shoot-3'
         }
     ],
-    
+
     // Glam Category
     glam: [
         {
@@ -203,7 +277,7 @@ const portfolioData = {
             group: 'glam-shoot-3'
         }
     ],
-    
+
     // Bridal Category
     bridal: [
         {
@@ -253,7 +327,7 @@ const portfolioData = {
 
 /**
  * Example configuration for using your own images:
- * 
+ *
  * // Using images from your GitHub repository
  * {
  *     id: 'br-1',
@@ -262,7 +336,7 @@ const portfolioData = {
  *     alt: 'Bridal makeup look',
  *     group: 'bridal-wedding-1'
  * }
- * 
+ *
  * // Using local images (stored in your portfolio folder)
  * {
  *     id: 'ed-1',
