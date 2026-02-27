@@ -142,47 +142,50 @@ const portfolioData = {
 
     // Fashion Category
     fashion: [
+        // Jennifer Cole / Linden Staub by Samuel Geals (2 images)
         {
             id: 'fa-1',
-            src: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80',
-            alt: 'Fashion makeup - runway look',
-            group: 'fashion-shoot-1'
+            src: 'images/fashion/Jennifer_Cole_Linden_Staub_by_Samuel_Geals_Photography_3.jpg',
+            thumb: 'images/fashion/Jennifer_Cole_Linden_Staub_by_Samuel_Geals_Photography_3.jpg',
+            alt: 'Jennifer Cole - Linden Staub by Samuel Geals Photography',
+            group: 'jennifer-cole-shoot'
         },
         {
             id: 'fa-2',
-            src: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80',
-            alt: 'Fashion makeup - editorial style',
-            group: 'fashion-shoot-1'
+            src: 'images/fashion/Jennifer_Cole_Linden_Staub_by_Samuel_Geals_Photography_9.jpg',
+            thumb: 'images/fashion/Jennifer_Cole_Linden_Staub_by_Samuel_Geals_Photography_9.jpg',
+            alt: 'Jennifer Cole - Linden Staub by Samuel Geals Photography',
+            group: 'jennifer-cole-shoot'
         },
+        // Zhou / Linden Staub by Samuel Geals (1 image)
         {
             id: 'fa-3',
-            src: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80',
-            alt: 'Fashion makeup - street style',
-            group: 'fashion-shoot-2'
+            src: 'images/fashion/Zhou_Linden_Staub_by_Samuel_Geals_Photography_5.jpg',
+            thumb: 'images/fashion/Zhou_Linden_Staub_by_Samuel_Geals_Photography_5.jpg',
+            alt: 'Zhou - Linden Staub by Samuel Geals Photography',
+            group: 'zhou-shoot'
         },
+        // Other Fashion Shoots
         {
             id: 'fa-4',
-            src: 'https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=600&q=80',
-            alt: 'Fashion makeup - avant garde',
-            group: 'fashion-shoot-2'
+            src: 'images/fashion/IMG_1955.JPG',
+            thumb: 'images/fashion/IMG_1955.JPG',
+            alt: 'Fashion shoot',
+            group: 'fashion-misc-1'
         },
         {
             id: 'fa-5',
-            src: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&q=80',
-            alt: 'Fashion makeup - minimal chic',
-            group: 'fashion-shoot-3'
+            src: 'images/fashion/IMG_1979.JPG',
+            thumb: 'images/fashion/IMG_1979.JPG',
+            alt: 'Fashion shoot',
+            group: 'fashion-misc-1'
         },
         {
             id: 'fa-6',
-            src: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=600&q=80',
-            alt: 'Fashion makeup - high fashion portrait',
-            group: 'fashion-shoot-3'
+            src: 'images/fashion/9556A787-AB00-4615-9F90-CF7878BF1D1C.jpg',
+            thumb: 'images/fashion/9556A787-AB00-4615-9F90-CF7878BF1D1C.jpg',
+            alt: 'Fashion shoot',
+            group: 'fashion-misc-2'
         }
     ],
 
