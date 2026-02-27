@@ -193,44 +193,51 @@ const portfolioData = {
     beauty: [
         {
             id: 'be-1',
-            src: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600&q=80',
-            alt: 'Beauty makeup - flawless skin',
+            src: 'images/beauty/IMG_4416.JPG',
+            thumb: 'images/beauty/IMG_4416.JPG',
+            alt: 'Beauty makeup look',
             group: 'beauty-shoot-1'
         },
         {
             id: 'be-2',
-            src: 'https://images.unsplash.com/photo-1560577744-b84c5e6aa857?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1560577744-b84c5e6aa857?w=600&q=80',
-            alt: 'Beauty makeup - natural glow',
+            src: 'images/beauty/IMG_4688.JPG',
+            thumb: 'images/beauty/IMG_4688.JPG',
+            alt: 'Beauty makeup look',
             group: 'beauty-shoot-1'
         },
         {
             id: 'be-3',
-            src: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80',
-            alt: 'Beauty makeup - soft focus',
+            src: 'images/beauty/IMG_4693.JPG',
+            thumb: 'images/beauty/IMG_4693.JPG',
+            alt: 'Beauty makeup look',
             group: 'beauty-shoot-2'
         },
         {
             id: 'be-4',
-            src: 'https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=600&q=80',
-            alt: 'Beauty makeup - dewy finish',
+            src: 'images/beauty/IMG_4694.JPG',
+            thumb: 'images/beauty/IMG_4694.JPG',
+            alt: 'Beauty makeup look',
             group: 'beauty-shoot-2'
         },
         {
             id: 'be-5',
-            src: 'https://images.unsplash.com/photo-1595959183082-7b570b7e08e2?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1595959183082-7b570b7e08e2?w=600&q=80',
-            alt: 'Beauty makeup - skincare focus',
+            src: 'images/beauty/IMG_5098.JPG',
+            thumb: 'images/beauty/IMG_5098.JPG',
+            alt: 'Beauty makeup look',
             group: 'beauty-shoot-3'
         },
         {
             id: 'be-6',
-            src: 'https://images.unsplash.com/photo-1523264939339-c89f9dadde2e?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1523264939339-c89f9dadde2e?w=600&q=80',
-            alt: 'Beauty makeup - luminous complexion',
+            src: 'images/beauty/IMG_5126.JPG',
+            thumb: 'images/beauty/IMG_5126.JPG',
+            alt: 'Beauty makeup look',
+            group: 'beauty-shoot-3'
+        },
+        {
+            id: 'be-7',
+            src: 'images/beauty/IMG_5127.JPG',
+            thumb: 'images/beauty/IMG_5127.JPG',
+            alt: 'Beauty makeup look',
             group: 'beauty-shoot-3'
         }
     ],
@@ -239,49 +246,21 @@ const portfolioData = {
     glam: [
         {
             id: 'gl-1',
-            src: 'https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=600&q=80',
-            alt: 'Glam makeup - red carpet ready',
-            group: 'glam-shoot-1'
+            src: 'images/glam/lizaKoshy.jpg',
+            thumb: 'images/glam/lizaKoshy.jpg',
+            alt: 'Liza Koshy glam makeup',
+            group: 'liza-koshy'
         },
         {
             id: 'gl-2',
-            src: 'https://images.unsplash.com/photo-1526045478516-99145907023c?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1526045478516-99145907023c?w=600&q=80',
-            alt: 'Glam makeup - smokey eyes',
-            group: 'glam-shoot-1'
-        },
-        {
-            id: 'gl-3',
-            src: 'https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?w=600&q=80',
-            alt: 'Glam makeup - evening look',
-            group: 'glam-shoot-2'
-        },
-        {
-            id: 'gl-4',
-            src: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&q=80',
-            alt: 'Glam makeup - bold and beautiful',
-            group: 'glam-shoot-2'
-        },
-        {
-            id: 'gl-5',
-            src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80',
-            alt: 'Glam makeup - golden hour',
-            group: 'glam-shoot-3'
-        },
-        {
-            id: 'gl-6',
-            src: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&q=80',
-            alt: 'Glam makeup - statement look',
-            group: 'glam-shoot-3'
+            src: 'images/glam/IMG_2702.JPG',
+            thumb: 'images/glam/IMG_2702.JPG',
+            alt: 'Glam makeup look',
+            group: 'glam-look-1'
         }
     ],
 
-    // Bridal Category
+    // Bridal Category (no images yet - keeping placeholders)
     bridal: [
         {
             id: 'br-1',
