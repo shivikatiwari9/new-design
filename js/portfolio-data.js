@@ -260,51 +260,16 @@ const portfolioData = {
         }
     ],
 
-    // Bridal Category (no images yet - keeping placeholders)
-    bridal: [
-        {
-            id: 'br-1',
-            src: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80',
-            alt: 'Bridal makeup - classic bride',
-            group: 'bridal-shoot-1'
-        },
-        {
-            id: 'br-2',
-            src: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=600&q=80',
-            alt: 'Bridal makeup - traditional look',
-            group: 'bridal-shoot-1'
-        },
-        {
-            id: 'br-3',
-            src: 'https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600&q=80',
-            alt: 'Bridal makeup - soft romantic',
-            group: 'bridal-shoot-2'
-        },
-        {
-            id: 'br-4',
-            src: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&q=80',
-            alt: 'Bridal makeup - elegant bride',
-            group: 'bridal-shoot-2'
-        },
-        {
-            id: 'br-5',
-            src: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&q=80',
-            alt: 'Bridal makeup - modern bride',
-            group: 'bridal-shoot-3'
-        },
-        {
-            id: 'br-6',
-            src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=80',
-            thumb: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80',
-            alt: 'Bridal makeup - timeless beauty',
-            group: 'bridal-shoot-3'
-        }
-    ]
+    // Bridal Category - Coming Soon
+    bridal: []
+};
+
+// Special message for empty categories
+const categoryMessages = {
+    bridal: {
+        title: 'Coming Soon',
+        message: 'Bridal portfolio is currently being updated. Check back soon for stunning bridal looks!'
+    }
 };
 
 /**
