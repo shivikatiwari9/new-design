@@ -418,6 +418,64 @@ p:last-child {
 }
 
 /* ============================================
+   INSTAGRAM SECTION
+   ============================================ */
+.instagram-section {
+    padding: var(--spacing-xxl) var(--spacing-lg);
+    background-color: var(--color-cream);
+}
+
+.instagram-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.instagram-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.instagram-title {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+    font-weight: 300;
+}
+
+.instagram-intro {
+    color: var(--color-grey-dark);
+    max-width: 600px;
+    margin: 0 auto var(--spacing-lg);
+}
+
+.instagram-follow-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 1rem 2rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--color-white);
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    border-radius: 30px;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.instagram-follow-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(225, 48, 108, 0.4);
+    color: var(--color-white);
+}
+
+.instagram-follow-btn svg {
+    flex-shrink: 0;
+}
+
+.instagram-feed {
+    min-height: 400px;
+}
+
+/* ============================================
    ABOUT SECTION
    ============================================ */
 .about-section {
