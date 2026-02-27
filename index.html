@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivika Tiwari | Makeup Artist</title>
+    <meta name="description" content="Professional Makeup Artist specializing in Editorial, Fashion, Beauty, Glam, and Bridal makeup. Based in India.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-name">Shivika Tiwari</span>
+                <span class="logo-title">Makeup Artist</span>
+            </a>
+
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="hamburger"></span>
+            </button>
+
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="#portfolio" class="nav-link active" data-section="portfolio">Portfolio</a></li>
+                    <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+                    <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="section portfolio-section active">
+
+            <!-- Category Navigation -->
+            <nav class="category-nav">
+                <ul class="category-list">
+                    <li><button class="category-btn active" data-category="editorial">Editorial</button></li>
+                    <li><button class="category-btn" data-category="fashion">Fashion</button></li>
+                    <li><button class="category-btn" data-category="beauty">Beauty</button></li>
+                    <li><button class="category-btn" data-category="glam">Glam</button></li>
+                    <li><button class="category-btn" data-category="bridal">Bridal</button></li>
+                </ul>
+            </nav>
+
+            <!-- Expanded Photo View (appears when clicking a photo) -->
+            <div class="expanded-view" id="expandedView">
+                <button class="close-expanded" aria-label="Close expanded view">&times;</button>
+                <div class="expanded-photos" id="expandedPhotos">
+                    <!-- Expanded photos will be inserted here -->
+                </div>
+            </div>
+
+            <!-- Photo Grid -->
+            <div class="gallery-container">
+                <div class="photo-grid" id="photoGrid">
+                    <!-- Photos will be loaded dynamically -->
+                </div>
+            </div>
+
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about-section">
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="images/about/shivika-portrait.jpg" alt="Shivika Tiwari - Makeup Artist" loading="lazy">
+                </div>
+                <div class="about-content">
+                    <h1 class="about-title">About Me</h1>
+                    <div class="about-text">
+                        <p>Hello, I'm <strong>Shivika Tiwari</strong>, a professional makeup artist with a passion for creating stunning, transformative looks that enhance natural beauty.</p>
+
+                        <p>With years of experience in the beauty industry, I specialize in editorial, fashion, beauty, glam, and bridal makeup. My work has been featured in various publications and I've had the privilege of working with talented photographers, models, and brides.</p>
+
+                        <p>I believe that makeup is an art form that should celebrate individuality. Whether you're preparing for your wedding day, a fashion shoot, or a special event, I work closely with each client to create a personalized look that reflects their unique style and personality.</p>
+
+                        <p>My kit features premium products from top brands, ensuring flawless results that photograph beautifully and last all day.</p>
+                    </div>
+
+                    <div class="about-services">
+                        <h2>Services</h2>
+                        <ul>
+                            <li>Bridal & Wedding Makeup</li>
+                            <li>Editorial & Fashion Shoots</li>
+                            <li>Beauty & Glam Looks</li>
+                            <li>Special Events & Occasions</li>
+                            <li>Makeup Lessons</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h1 class="contact-title">Get in Touch</h1>
+                    <p class="contact-intro">I'd love to hear from you. Whether you're planning a wedding, a photoshoot, or just want to say hello, feel free to reach out.</p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-label">Email</span>
+                            <a href="mailto:hello@shivikatiwari.com" class="contact-value">hello@shivikatiwari.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">Phone</span>
+                            <a href="tel:+919876543210" class="contact-value">+91 98765 43210</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">Instagram</span>
+                            <a href="https://instagram.com/shivikatiwari.makeup" target="_blank" rel="noopener" class="contact-value">@shivikatiwari.makeup</a>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://instagram.com/shivikatiwari.makeup" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form class="contact-form" name="contact" method="POST" action="/thank-you" data-netlify="true" netlify-honeypot="bot-field">
+                        <input type="hidden" name="form-name" value="contact">
+                        <p class="hidden" style="display:none;">
+                            <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                        </p>
+
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone (optional)</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service...</option>
+                                <option value="bridal">Bridal Makeup</option>
+                                <option value="editorial">Editorial/Fashion Shoot</option>
+                                <option value="beauty">Beauty/Glam Look</option>
+                                <option value="event">Special Event</option>
+                                <option value="lessons">Makeup Lessons</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="copyright">&copy; 2024 Shivika Tiwari. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="https://instagram.com/shivikatiwari.makeup" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+        <button class="lightbox-prev" aria-label="Previous image">&#8249;</button>
+        <button class="lightbox-next" aria-label="Next image">&#8250;</button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImage">
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/portfolio-data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
