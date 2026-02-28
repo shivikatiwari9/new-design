@@ -161,11 +161,16 @@
                 </div>
 
                 <div class="contact-form-container">
-                    <form class="contact-form" name="contact" method="POST" action="/thank-you" data-netlify="true" netlify-honeypot="bot-field">
-                        <input type="hidden" name="form-name" value="contact">
-                        <p class="hidden" style="display:none;">
-                            <label>Don't fill this out if you're human: <input name="bot-field"></label>
-                        </p>
+                    <!--
+                    FORMSPREE SETUP:
+                    1. Go to https://formspree.io and sign up (free)
+                    2. Create a new form
+                    3. Replace YOUR_FORM_ID below with your actual form ID
+                    -->
+                    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <input type="hidden" name="_subject" value="New inquiry from shivikafacepaint.co.uk">
+                        <input type="hidden" name="_next" value="https://shivikafacepaint.co.uk/thank-you.html">
+                        <input type="text" name="_gotcha" style="display:none">
 
                         <div class="form-group">
                             <label for="name">Name</label>
