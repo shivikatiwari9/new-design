@@ -939,10 +939,6 @@ p:last-child {
     .photo-grid {
         grid-template-columns: 1fr;
     }
-
-    .photo-item {
-        aspect-ratio: 4/5;
-    }
 }
 
 /* ============================================
