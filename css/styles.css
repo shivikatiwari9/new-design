@@ -331,8 +331,8 @@ p:last-child {
 .photo-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 200px;
     gap: var(--spacing-md);
+    grid-auto-flow: dense;
 }
 
 .photo-item {
@@ -345,30 +345,17 @@ p:last-child {
 /* First image - Hero/Featured - bigger and more prominent */
 .photo-item:first-child {
     grid-column: span 2;
-    grid-row: span 3;
 }
 
-/* Varied sizes for visual interest */
-.photo-item:nth-child(6n+2) {
-    grid-row: span 2;
-}
-
-.photo-item:nth-child(8n+4) {
-    grid-row: span 2;
-}
-
-.photo-item:nth-child(10n+6) {
+/* Varied column spans for visual interest */
+.photo-item:nth-child(7n+4) {
     grid-column: span 2;
-}
-
-.photo-item:nth-child(12n+8) {
-    grid-row: span 2;
 }
 
 .photo-item img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    display: block;
     transition: transform var(--transition-slow), opacity var(--transition-normal);
 }
 
