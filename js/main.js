@@ -154,9 +154,10 @@
             return;
         }
 
-        // Add photos to grid
+        // Add photos to grid with size classes for tight packing
         photos.forEach((photo, index) => {
-            const photoItem = createPhotoItem(photo, index);
+            const sizeClass = getSizeClass(index, photos.length);
+            const photoItem = createPhotoItem(photo, index, sizeClass);
             photoGrid.appendChild(photoItem);
         });
 
@@ -164,9 +165,34 @@
         lazyLoadImages();
     }
 
-    function createPhotoItem(photo, index) {
+    // Get size class for tight packing layout
+    // Pattern: First is large, then mix of medium and small in a repeating pattern
+    function getSizeClass(index, totalPhotos) {
+        // First photo is always large
+        if (index === 0) {
+            return 'size-large';
+        }
+
+        // For remaining photos, create a mixed pattern
+        // Pattern repeats every 6 photos after the first:
+        // [medium, small, small, medium, medium, small]
+        // This creates visual variety while maintaining tight packing
+        const patternIndex = (index - 1) % 6;
+
+        switch (patternIndex) {
+            case 0: return 'size-medium';  // medium
+            case 1: return 'size-small';   // small
+            case 2: return 'size-small';   // small
+            case 3: return 'size-medium';  // medium
+            case 4: return 'size-medium';  // medium
+            case 5: return 'size-small';   // small
+            default: return 'size-small';
+        }
+    }
+
+    function createPhotoItem(photo, index, sizeClass) {
         const div = document.createElement('div');
-        div.className = 'photo-item';
+        div.className = `photo-item ${sizeClass}`;
         div.setAttribute('data-id', photo.id);
         div.setAttribute('data-group', photo.group || '');
         div.setAttribute('data-index', index);
