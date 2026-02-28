@@ -327,10 +327,11 @@ p:last-child {
     margin: 0 auto;
 }
 
-/* Photo Grid */
+/* Photo Grid - Masonry Style with Varied Sizes */
 .photo-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
     gap: var(--spacing-md);
 }
 
@@ -338,8 +339,29 @@ p:last-child {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    aspect-ratio: 3/4;
     background-color: var(--color-grey-light);
+}
+
+/* Varied sizes for visual interest */
+.photo-item:nth-child(6n+1) {
+    grid-row: span 2;
+}
+
+.photo-item:nth-child(8n+3) {
+    grid-row: span 2;
+}
+
+.photo-item:nth-child(10n+5) {
+    grid-column: span 2;
+}
+
+.photo-item:nth-child(12n+7) {
+    grid-row: span 2;
+}
+
+.photo-item:nth-child(14n+9) {
+    grid-row: span 2;
+    grid-column: span 2;
 }
 
 .photo-item img {
