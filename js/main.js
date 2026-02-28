@@ -342,63 +342,14 @@
         images.forEach(img => imageObserver.observe(img));
     }
 
-    // Contact Form
+    // Contact Form - Formspree
     function setupContactForm() {
         const form = document.querySelector('.contact-form');
         if (!form) return;
 
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const submitBtn = form.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-
-            try {
-                const formData = new FormData(form);
-
-                // For Netlify forms
-                const response = await fetch('/', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: new URLSearchParams(formData).toString()
-                });
-
-                if (response.ok) {
-                    showFormMessage('Thank you for your message! I\'ll get back to you soon.', 'success');
-                    form.reset();
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                console.error('Form error:', error);
-                showFormMessage('Something went wrong. Please try again or email directly.', 'error');
-            } finally {
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }
-        });
-    }
-
-    function showFormMessage(message, type) {
-        // Remove existing message
-        const existingMessage = document.querySelector('.form-success, .form-error');
-        if (existingMessage) {
-            existingMessage.remove();
-        }
-
-        const messageDiv = document.createElement('div');
-        messageDiv.className = type === 'success' ? 'form-success' : 'form-error';
-        messageDiv.textContent = message;
-
-        const form = document.querySelector('.contact-form');
-        form.insertBefore(messageDiv, form.firstChild);
-
-        // Auto-remove after 5 seconds
-        setTimeout(() => {
-            messageDiv.remove();
-        }, 5000);
+        // Let the form submit naturally to Formspree
+        // No need to intercept - Formspree handles everything
+        // The form action and _next field handle redirection
     }
 
     // Scroll Effects
