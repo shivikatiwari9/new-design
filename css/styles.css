@@ -583,6 +583,27 @@ p:last-child {
 
 .contact-item {
     margin-bottom: var(--spacing-md);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.contact-item .contact-label {
+    width: 100%;
+}
+
+.whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #25D366;
+    transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.whatsapp-link:hover {
+    color: #128C7E;
+    transform: scale(1.1);
 }
 
 .contact-label {
