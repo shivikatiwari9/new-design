@@ -37,10 +37,10 @@
         setupLightbox();
         setupContactForm();
         setupScrollEffects();
-        
+
         // Load first category by default
         loadCategory('editorial');
-        
+
         // Handle hash navigation
         handleHashChange();
         window.addEventListener('hashchange', handleHashChange);
@@ -54,7 +54,7 @@
                 const sectionId = link.getAttribute('data-section');
                 showSection(sectionId);
                 closeMobileMenu();
-                
+
                 // Update URL hash
                 history.pushState(null, '', `#${sectionId}`);
             });
@@ -90,7 +90,7 @@
     // Mobile Menu
     function setupMobileMenu() {
         mobileMenuToggle.addEventListener('click', toggleMobileMenu);
-        
+
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.header')) {
@@ -114,14 +114,14 @@
         categoryBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const category = btn.getAttribute('data-category');
-                
+
                 // Update active state
                 categoryBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                
+
                 // Close expanded view if open
                 closeExpandedView();
-                
+
                 // Load new category
                 loadCategory(category);
             });
@@ -132,13 +132,32 @@
     function loadCategory(category) {
         currentCategory = category;
         const photos = portfolioData[category] || [];
-        
+
         // Clear existing photos
         photoGrid.innerHTML = '';
-        
-        // Add photos to grid
+
+        // Check if category is empty and has a special message
+        if (photos.length === 0 && typeof categoryMessages !== 'undefined' && categoryMessages[category]) {
+            const message = categoryMessages[category];
+            const emptyState = document.createElement('div');
+            emptyState.className = 'empty-category';
+            emptyState.innerHTML = `
+                <div class="empty-category-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="60" height="60">
+                        <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h2 class="empty-category-title">${message.title}</h2>
+                <p class="empty-category-message">${message.message}</p>
+            `;
+            photoGrid.appendChild(emptyState);
+            return;
+        }
+
+        // Add photos to grid with size classes for tight packing
         photos.forEach((photo, index) => {
-            const photoItem = createPhotoItem(photo, index);
+            const sizeClass = getSizeClass(index, photos.length);
+            const photoItem = createPhotoItem(photo, index, sizeClass);
             photoGrid.appendChild(photoItem);
         });
 
@@ -146,36 +165,61 @@
         lazyLoadImages();
     }
 
-    function createPhotoItem(photo, index) {
+    // Get size class for tight packing layout
+    // Pattern: First is large, then mix of medium and small in a repeating pattern
+    function getSizeClass(index, totalPhotos) {
+        // First photo is always large
+        if (index === 0) {
+            return 'size-large';
+        }
+
+        // For remaining photos, create a mixed pattern
+        // Pattern repeats every 6 photos after the first:
+        // [medium, small, small, medium, medium, small]
+        // This creates visual variety while maintaining tight packing
+        const patternIndex = (index - 1) % 6;
+
+        switch (patternIndex) {
+            case 0: return 'size-medium';  // medium
+            case 1: return 'size-small';   // small
+            case 2: return 'size-small';   // small
+            case 3: return 'size-medium';  // medium
+            case 4: return 'size-medium';  // medium
+            case 5: return 'size-small';   // small
+            default: return 'size-small';
+        }
+    }
+
+    function createPhotoItem(photo, index, sizeClass) {
         const div = document.createElement('div');
-        div.className = 'photo-item';
+        div.className = `photo-item ${sizeClass}`;
         div.setAttribute('data-id', photo.id);
         div.setAttribute('data-group', photo.group || '');
         div.setAttribute('data-index', index);
-        
+
         const img = document.createElement('img');
         img.setAttribute('data-src', photo.thumb);
         img.setAttribute('alt', photo.alt);
         img.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 4"%3E%3C/svg%3E';
-        
+
         div.appendChild(img);
-        
+
         // Click handler - expand to show related photos
         div.addEventListener('click', () => handlePhotoClick(photo, index));
-        
+
         return div;
     }
 
     // Photo Click Handler - Shows expanded view with related photos
     function handlePhotoClick(photo, index) {
         const photos = portfolioData[currentCategory];
-        
+
         // If same photo clicked, close expanded view
         if (currentExpandedPhotoId === photo.id) {
             closeExpandedView();
             return;
         }
-        
+
         // Get related photos (same group)
         let relatedPhotos;
         if (photo.group) {
@@ -183,40 +227,40 @@
         } else {
             relatedPhotos = [photo];
         }
-        
+
         // Update state
         currentExpandedPhotoId = photo.id;
-        
+
         // Remove expanded class from all items
         document.querySelectorAll('.photo-item').forEach(item => {
             item.classList.remove('expanded');
         });
-        
+
         // Add expanded class to clicked item
         const clickedItem = document.querySelector(`[data-id="${photo.id}"]`);
         if (clickedItem) {
             clickedItem.classList.add('expanded');
         }
-        
+
         // Populate expanded view
         expandedPhotos.innerHTML = '';
         relatedPhotos.forEach((p, i) => {
             const photoDiv = document.createElement('div');
             photoDiv.className = 'expanded-photo';
             photoDiv.setAttribute('data-index', i);
-            
+
             const img = document.createElement('img');
             img.src = p.src;
             img.alt = p.alt;
             img.addEventListener('click', () => openLightbox(relatedPhotos, i));
-            
+
             photoDiv.appendChild(img);
             expandedPhotos.appendChild(photoDiv);
         });
-        
+
         // Show expanded view
         expandedView.classList.add('active');
-        
+
         // Scroll to expanded view
         expandedView.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -224,7 +268,7 @@
     function closeExpandedView() {
         expandedView.classList.remove('active');
         currentExpandedPhotoId = null;
-        
+
         // Remove expanded class from all items
         document.querySelectorAll('.photo-item').forEach(item => {
             item.classList.remove('expanded');
@@ -241,18 +285,18 @@
         lightboxClose.addEventListener('click', closeLightbox);
         lightboxPrev.addEventListener('click', showPrevImage);
         lightboxNext.addEventListener('click', showNextImage);
-        
+
         // Close on backdrop click
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) {
                 closeLightbox();
             }
         });
-        
+
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (!lightbox.classList.contains('active')) return;
-            
+
             switch (e.key) {
                 case 'Escape':
                     closeLightbox();
@@ -270,7 +314,7 @@
     function openLightbox(images, startIndex = 0) {
         lightboxImages = images;
         currentLightboxIndex = startIndex;
-        
+
         showLightboxImage();
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
@@ -283,11 +327,11 @@
 
     function showLightboxImage() {
         if (lightboxImages.length === 0) return;
-        
+
         const image = lightboxImages[currentLightboxIndex];
         lightboxImage.src = image.src;
         lightboxImage.alt = image.alt;
-        
+
         // Update navigation visibility
         lightboxPrev.style.display = lightboxImages.length > 1 ? 'block' : 'none';
         lightboxNext.style.display = lightboxImages.length > 1 ? 'block' : 'none';
@@ -306,7 +350,7 @@
     // Lazy Loading
     function lazyLoadImages() {
         const images = document.querySelectorAll('img[data-src]');
-        
+
         const imageObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -320,83 +364,34 @@
             rootMargin: '50px 0px',
             threshold: 0.01
         });
-        
+
         images.forEach(img => imageObserver.observe(img));
     }
 
-    // Contact Form
+    // Contact Form - Formspree
     function setupContactForm() {
         const form = document.querySelector('.contact-form');
         if (!form) return;
-        
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const submitBtn = form.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            try {
-                const formData = new FormData(form);
-                
-                // For Netlify forms
-                const response = await fetch('/', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: new URLSearchParams(formData).toString()
-                });
-                
-                if (response.ok) {
-                    showFormMessage('Thank you for your message! I\'ll get back to you soon.', 'success');
-                    form.reset();
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                console.error('Form error:', error);
-                showFormMessage('Something went wrong. Please try again or email directly.', 'error');
-            } finally {
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }
-        });
-    }
 
-    function showFormMessage(message, type) {
-        // Remove existing message
-        const existingMessage = document.querySelector('.form-success, .form-error');
-        if (existingMessage) {
-            existingMessage.remove();
-        }
-        
-        const messageDiv = document.createElement('div');
-        messageDiv.className = type === 'success' ? 'form-success' : 'form-error';
-        messageDiv.textContent = message;
-        
-        const form = document.querySelector('.contact-form');
-        form.insertBefore(messageDiv, form.firstChild);
-        
-        // Auto-remove after 5 seconds
-        setTimeout(() => {
-            messageDiv.remove();
-        }, 5000);
+        // Let the form submit naturally to Formspree
+        // No need to intercept - Formspree handles everything
+        // The form action and _next field handle redirection
     }
 
     // Scroll Effects
     function setupScrollEffects() {
         let lastScroll = 0;
-        
+
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
-            
+
             // Header shadow on scroll
             if (currentScroll > 10) {
                 header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
             } else {
                 header.style.boxShadow = 'none';
             }
-            
+
             lastScroll = currentScroll;
         });
     }

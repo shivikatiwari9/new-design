@@ -327,31 +327,54 @@ p:last-child {
     margin: 0 auto;
 }
 
-/* Photo Grid */
+/* Photo Grid - Tight Packing with CSS Grid (Portrait-Optimized) */
 .photo-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-md);
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 80px;
+    gap: 8px;
+    grid-auto-flow: dense;
 }
 
 .photo-item {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    aspect-ratio: 3/4;
-    background-color: var(--color-grey-light);
+    background-color: #f0efed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Size: Large - 2 cols x 5 rows (portrait) */
+.photo-item.size-large {
+    grid-column: span 2;
+    grid-row: span 5;
+}
+
+/* Size: Medium - 2 cols x 4 rows (portrait) */
+.photo-item.size-medium {
+    grid-column: span 2;
+    grid-row: span 4;
+}
+
+/* Size: Small - 1 col x 3 rows (portrait) */
+.photo-item.size-small {
+    grid-column: span 1;
+    grid-row: span 3;
 }
 
 .photo-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    display: block;
     transition: transform var(--transition-slow), opacity var(--transition-normal);
 }
 
 .photo-item:hover img {
     transform: scale(1.03);
-    opacity: 0.9;
+    opacity: 0.95;
 }
 
 .photo-item.expanded {
@@ -415,6 +438,64 @@ p:last-child {
     width: auto;
     height: auto;
     object-fit: contain;
+}
+
+/* ============================================
+   INSTAGRAM SECTION
+   ============================================ */
+.instagram-section {
+    padding: var(--spacing-xxl) var(--spacing-lg);
+    background-color: var(--color-cream);
+}
+
+.instagram-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.instagram-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.instagram-title {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+    font-weight: 300;
+}
+
+.instagram-intro {
+    color: var(--color-grey-dark);
+    max-width: 600px;
+    margin: 0 auto var(--spacing-lg);
+}
+
+.instagram-follow-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 1rem 2rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--color-white);
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    border-radius: 30px;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.instagram-follow-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(225, 48, 108, 0.4);
+    color: var(--color-white);
+}
+
+.instagram-follow-btn svg {
+    flex-shrink: 0;
+}
+
+.instagram-feed {
+    min-height: 400px;
 }
 
 /* ============================================
@@ -765,7 +846,26 @@ p:last-child {
 /* Tablet */
 @media (max-width: 1024px) {
     .photo-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 70px;
+    }
+
+    /* Large - 2 cols x 4 rows (portrait) */
+    .photo-item.size-large {
+        grid-column: span 2;
+        grid-row: span 4;
+    }
+
+    /* Medium - 2 cols x 3 rows (portrait) */
+    .photo-item.size-medium {
+        grid-column: span 2;
+        grid-row: span 3;
+    }
+
+    /* Small - 1 col x 3 rows (portrait) */
+    .photo-item.size-small {
+        grid-column: span 1;
+        grid-row: span 3;
     }
 
     .about-container,
@@ -823,8 +923,26 @@ p:last-child {
     }
 
     .photo-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-sm);
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 60px;
+    }
+
+    /* Large - 2 cols x 4 rows (portrait) */
+    .photo-item.size-large {
+        grid-column: span 2;
+        grid-row: span 4;
+    }
+
+    /* Medium - 2 cols x 3 rows (portrait) */
+    .photo-item.size-medium {
+        grid-column: span 2;
+        grid-row: span 3;
+    }
+
+    /* Small - 1 col x 3 rows (portrait) */
+    .photo-item.size-small {
+        grid-column: span 1;
+        grid-row: span 3;
     }
 
     .portfolio-section {
@@ -869,11 +987,26 @@ p:last-child {
     }
 
     .photo-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 70px;
     }
 
-    .photo-item {
-        aspect-ratio: 4/5;
+    /* Large - 2 cols x 4 rows (portrait) */
+    .photo-item.size-large {
+        grid-column: span 2;
+        grid-row: span 4;
+    }
+
+    /* Medium - 2 cols x 3 rows (portrait) */
+    .photo-item.size-medium {
+        grid-column: span 2;
+        grid-row: span 3;
+    }
+
+    /* Small - 1 col x 3 rows (portrait) */
+    .photo-item.size-small {
+        grid-column: span 1;
+        grid-row: span 3;
     }
 }
 
@@ -913,4 +1046,37 @@ p:last-child {
     margin-bottom: var(--spacing-md);
     border-radius: 4px;
     text-align: center;
+}
+
+/* Empty Category State (Coming Soon) */
+.empty-category {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--spacing-xxl) var(--spacing-lg);
+    min-height: 400px;
+}
+
+.empty-category-icon {
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.8;
+}
+
+.empty-category-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--color-black);
+    margin-bottom: var(--spacing-md);
+}
+
+.empty-category-message {
+    font-size: 1rem;
+    color: var(--color-grey-dark);
+    max-width: 400px;
+    line-height: 1.6;
 }
