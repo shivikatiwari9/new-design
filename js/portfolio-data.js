@@ -9,7 +9,6 @@ const portfolioData = {
     editorial: [
         // Featured
         { id: 'ed-feat', src: 'images/editorial/IMG-20260227-WA0000.jpg', thumb: 'images/editorial/IMG-20260227-WA0000.jpg', alt: 'Editorial beauty', group: 'featured' },
-        { id: 'ed-main', src: 'images/editorial/main.jpg.jpeg', thumb: 'images/editorial/main.jpg.jpeg', alt: 'Editorial main', group: 'featured' },
 
         // Vogue HK Series
         { id: 'ed-vhk1', src: 'images/editorial/Vogue HK1.png', thumb: 'images/editorial/Vogue HK1.png', alt: 'Vogue HK editorial', group: 'vogue-hk' },
