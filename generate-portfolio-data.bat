@@ -5,20 +5,27 @@ setlocal enabledelayedexpansion
 :: Auto-generate portfolio-data.js from image directories
 :: Run this script whenever you add or remove photos
 :: Usage: Double-click or run generate-portfolio-data.bat
+::        Use --silent flag to skip pause (for automation)
 :: ============================================
 
-echo.
-echo ========================================
-echo   Portfolio Data Generator for Windows
-echo ========================================
-echo.
+:: Check for --silent flag
+set SILENT=0
+if "%~1"=="--silent" set SILENT=1
+
+if %SILENT%==0 (
+    echo.
+    echo ========================================
+    echo   Portfolio Data Generator for Windows
+    echo ========================================
+    echo.
+)
 
 cd /d "%~dp0"
 
 set OUTPUT_FILE=js\portfolio-data.js
 
-echo Creating %OUTPUT_FILE%...
-echo.
+if %SILENT%==0 echo Creating %OUTPUT_FILE%...
+if %SILENT%==0 echo.
 
 :: Start the JS file
 (
@@ -49,13 +56,15 @@ echo     module.exports = portfolioData;
 echo }
 ) >> "%OUTPUT_FILE%"
 
-echo.
-echo ========================================
-echo   DONE! Generated %OUTPUT_FILE%
-echo ========================================
-echo.
-echo Press any key to exit...
-pause > nul
+if %SILENT%==0 (
+    echo.
+    echo ========================================
+    echo   DONE! Generated %OUTPUT_FILE%
+    echo ========================================
+    echo.
+    echo Press any key to exit...
+    pause > nul
+)
 exit /b 0
 
 :: ============================================
