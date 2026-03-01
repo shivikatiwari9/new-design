@@ -606,6 +606,19 @@ p:last-child {
     transform: scale(1.1);
 }
 
+.instagram-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #E1306C;
+    transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.instagram-link:hover {
+    color: #C13584;
+    transform: scale(1.1);
+}
+
 .contact-label {
     display: block;
     font-size: 0.7rem;
