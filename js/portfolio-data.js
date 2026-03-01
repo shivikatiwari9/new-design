@@ -123,7 +123,6 @@ const portfolioData = {
 
         // Other
         { id: 'ed-iulia', src: 'images/editorial/Iuliatest.jpg', thumb: 'images/editorial/Iuliatest.jpg', alt: 'Iulia editorial', group: 'other' },
-        { id: 'ed-screenshot', src: 'images/editorial/Screenshot_20260227-232659.png', thumb: 'images/editorial/Screenshot_20260227-232659.png', alt: 'Editorial', group: 'other' }
     ],
 
     // Fashion Category (52 valid images)
