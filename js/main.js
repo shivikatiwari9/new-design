@@ -14,9 +14,6 @@
     const sections = document.querySelectorAll('.section');
     const categoryBtns = document.querySelectorAll('.category-btn');
     const photoGrid = document.getElementById('photoGrid');
-    const expandedView = document.getElementById('expandedView');
-    const expandedPhotos = document.getElementById('expandedPhotos');
-    const closeExpandedBtn = document.querySelector('.close-expanded');
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxClose = document.querySelector('.lightbox-close');
@@ -25,7 +22,6 @@
 
     // State
     let currentCategory = 'editorial';
-    let currentExpandedPhotoId = null;
     let currentLightboxIndex = 0;
     let lightboxImages = [];
 
@@ -119,9 +115,6 @@
                 categoryBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
 
-                // Close expanded view if open
-                closeExpandedView();
-
                 // Load new category
                 loadCategory(category);
             });
@@ -154,10 +147,9 @@
             return;
         }
 
-        // Add photos to grid with size classes for tight packing
+        // Add photos to grid
         photos.forEach((photo, index) => {
-            const sizeClass = getSizeClass(index, photos.length);
-            const photoItem = createPhotoItem(photo, index, sizeClass);
+            const photoItem = createPhotoItem(photo, index);
             photoGrid.appendChild(photoItem);
         });
 
@@ -165,36 +157,10 @@
         lazyLoadImages();
     }
 
-    // Get size class for tight packing layout
-    // Pattern: First is large, then mix of medium and small in a repeating pattern
-    function getSizeClass(index, totalPhotos) {
-        // First photo is always large
-        if (index === 0) {
-            return 'size-large';
-        }
-
-        // For remaining photos, create a mixed pattern
-        // Pattern repeats every 6 photos after the first:
-        // [medium, small, small, medium, medium, small]
-        // This creates visual variety while maintaining tight packing
-        const patternIndex = (index - 1) % 6;
-
-        switch (patternIndex) {
-            case 0: return 'size-medium';  // medium
-            case 1: return 'size-small';   // small
-            case 2: return 'size-small';   // small
-            case 3: return 'size-medium';  // medium
-            case 4: return 'size-medium';  // medium
-            case 5: return 'size-small';   // small
-            default: return 'size-small';
-        }
-    }
-
-    function createPhotoItem(photo, index, sizeClass) {
+    function createPhotoItem(photo, index) {
         const div = document.createElement('div');
-        div.className = `photo-item ${sizeClass}`;
+        div.className = 'photo-item';
         div.setAttribute('data-id', photo.id);
-        div.setAttribute('data-group', photo.group || '');
         div.setAttribute('data-index', index);
 
         const img = document.createElement('img');
@@ -204,80 +170,16 @@
 
         div.appendChild(img);
 
-        // Click handler - expand to show related photos
-        div.addEventListener('click', () => handlePhotoClick(photo, index));
+        // Click handler - open lightbox with all photos in the category
+        div.addEventListener('click', () => handlePhotoClick(index));
 
         return div;
     }
 
-    // Photo Click Handler - Shows expanded view with related photos
-    function handlePhotoClick(photo, index) {
+    // Photo Click Handler - Opens lightbox with all photos in current category
+    function handlePhotoClick(index) {
         const photos = portfolioData[currentCategory];
-
-        // If same photo clicked, close expanded view
-        if (currentExpandedPhotoId === photo.id) {
-            closeExpandedView();
-            return;
-        }
-
-        // Get related photos (same group)
-        let relatedPhotos;
-        if (photo.group) {
-            relatedPhotos = photos.filter(p => p.group === photo.group);
-        } else {
-            relatedPhotos = [photo];
-        }
-
-        // Update state
-        currentExpandedPhotoId = photo.id;
-
-        // Remove expanded class from all items
-        document.querySelectorAll('.photo-item').forEach(item => {
-            item.classList.remove('expanded');
-        });
-
-        // Add expanded class to clicked item
-        const clickedItem = document.querySelector(`[data-id="${photo.id}"]`);
-        if (clickedItem) {
-            clickedItem.classList.add('expanded');
-        }
-
-        // Populate expanded view
-        expandedPhotos.innerHTML = '';
-        relatedPhotos.forEach((p, i) => {
-            const photoDiv = document.createElement('div');
-            photoDiv.className = 'expanded-photo';
-            photoDiv.setAttribute('data-index', i);
-
-            const img = document.createElement('img');
-            img.src = p.src;
-            img.alt = p.alt;
-            img.addEventListener('click', () => openLightbox(relatedPhotos, i));
-
-            photoDiv.appendChild(img);
-            expandedPhotos.appendChild(photoDiv);
-        });
-
-        // Show expanded view
-        expandedView.classList.add('active');
-
-        // Scroll to expanded view
-        expandedView.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    function closeExpandedView() {
-        expandedView.classList.remove('active');
-        currentExpandedPhotoId = null;
-
-        // Remove expanded class from all items
-        document.querySelectorAll('.photo-item').forEach(item => {
-            item.classList.remove('expanded');
-        });
-    }
-
-    // Close expanded view button
-    if (closeExpandedBtn) {
-        closeExpandedBtn.addEventListener('click', closeExpandedView);
+        openLightbox(photos, index);
     }
 
     // Lightbox
@@ -309,6 +211,34 @@
                     break;
             }
         });
+
+        // Touch swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        lightbox.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        lightbox.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe left - next image
+                    showNextImage();
+                } else {
+                    // Swipe right - previous image
+                    showPrevImage();
+                }
+            }
+        }
     }
 
     function openLightbox(images, startIndex = 0) {
