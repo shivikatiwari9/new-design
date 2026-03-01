@@ -9,7 +9,6 @@ const portfolioData = {
     editorial: [
         // Featured Image
         { id: 'ed-0', src: 'images/editorial/IMG-20260227-WA0000.jpg', thumb: 'images/editorial/IMG-20260227-WA0000.jpg', alt: 'Editorial beauty look', group: 'featured' },
-        { id: 'ed-main', src: 'images/editorial/main.jpg.jpeg', thumb: 'images/editorial/main.jpg.jpeg', alt: 'Editorial main shot', group: 'main' },
         // Vogue HK
         { id: 'ed-vhk-1', src: 'images/editorial/Vogue HK1.png', thumb: 'images/editorial/Vogue HK1.png', alt: 'Vogue Hong Kong editorial', group: 'vogue-hk' },
         { id: 'ed-vhk-2', src: 'images/editorial/Vogue HK2.png', thumb: 'images/editorial/Vogue HK2.png', alt: 'Vogue Hong Kong editorial', group: 'vogue-hk' },
@@ -184,11 +183,9 @@ const portfolioData = {
         { id: 'fa-j12', src: 'images/fashion/17988372979532605.jpg', thumb: 'images/fashion/17988372979532605.jpg', alt: 'Fashion shoot', group: 'fa-jpg-6' },
         { id: 'fa-j13', src: 'images/fashion/17990983741418101.jpg', thumb: 'images/fashion/17990983741418101.jpg', alt: 'Fashion shoot', group: 'fa-jpg-7' },
         { id: 'fa-j14', src: 'images/fashion/18025940278446569.jpg', thumb: 'images/fashion/18025940278446569.jpg', alt: 'Fashion shoot', group: 'fa-jpg-7' },
-        { id: 'fa-j15', src: 'images/fashion/18033031826196636.jpg', thumb: 'images/fashion/18033031826196636.jpg', alt: 'Fashion shoot', group: 'fa-jpg-8' },
         { id: 'fa-j16', src: 'images/fashion/18075683455491685.jpg', thumb: 'images/fashion/18075683455491685.jpg', alt: 'Fashion shoot', group: 'fa-jpg-8' },
         { id: 'fa-j17', src: 'images/fashion/18181531552081785.jpg', thumb: 'images/fashion/18181531552081785.jpg', alt: 'Fashion shoot', group: 'fa-jpg-9' },
         // DSC Series
-        { id: 'fa-dsc1', src: 'images/fashion/DSC04011 copy.jpg', thumb: 'images/fashion/DSC04011 copy.jpg', alt: 'Fashion shoot', group: 'dsc' },
         { id: 'fa-dsc2', src: 'images/fashion/DSC04320 copy (1).jpg', thumb: 'images/fashion/DSC04320 copy (1).jpg', alt: 'Fashion shoot', group: 'dsc' },
         // Jennifer Cole
         { id: 'fa-jc1', src: 'images/fashion/Jennifer_Cole_Linden_Staub_by_Samuel_Geals_Photography_3.jpg', thumb: 'images/fashion/Jennifer_Cole_Linden_Staub_by_Samuel_Geals_Photography_3.jpg', alt: 'Jennifer Cole by Samuel Geals', group: 'jennifer-cole' },
@@ -200,8 +197,6 @@ const portfolioData = {
         { id: 'fa-ot2', src: 'images/fashion/IMG_1955.JPG', thumb: 'images/fashion/IMG_1955.JPG', alt: 'Fashion shoot', group: 'fa-misc' },
         { id: 'fa-ot3', src: 'images/fashion/IMG_1979.JPG', thumb: 'images/fashion/IMG_1979.JPG', alt: 'Fashion shoot', group: 'fa-misc' },
         { id: 'fa-ot4', src: 'images/fashion/9556A787-AB00-4615-9F90-CF7878BF1D1C.jpg', thumb: 'images/fashion/9556A787-AB00-4615-9F90-CF7878BF1D1C.jpg', alt: 'Fashion shoot', group: 'fa-misc-2' },
-        { id: 'fa-ot5', src: 'images/fashion/copy.jpg', thumb: 'images/fashion/copy.jpg', alt: 'Fashion shoot', group: 'fa-misc-2' },
-        { id: 'fa-ot6', src: 'images/fashion/(1).jpg', thumb: 'images/fashion/(1).jpg', alt: 'Fashion shoot', group: 'fa-misc-2' }
     ],
 
     // Beauty Category
