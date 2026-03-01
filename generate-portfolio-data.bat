@@ -78,7 +78,8 @@ echo     %CATEGORY%: [
 :: Check if directory exists
 if exist "%DIR%" (
     :: Process all image files (sorted alphabetically)
-    for /f "tokens=*" %%f in ('dir /b /a-d /on "%DIR%\*.jpg" "%DIR%\*.jpeg" "%DIR%\*.png" "%DIR%\*.webp" "%DIR%\*.JPG" "%DIR%\*.JPEG" "%DIR%\*.PNG" "%DIR%\*.WEBP" 2^>nul') do (
+    :: Note: Windows dir is case-insensitive, so *.jpg matches *.JPG too
+    for /f "tokens=*" %%f in ('dir /b /a-d /on "%DIR%\*.jpg" "%DIR%\*.jpeg" "%DIR%\*.png" "%DIR%\*.webp" 2^>nul') do (
         set FILENAME=%%f
         set ID=%CATEGORY:~0,2%-!COUNT!
         set PATH_STR=images/%CATEGORY%/!FILENAME!
